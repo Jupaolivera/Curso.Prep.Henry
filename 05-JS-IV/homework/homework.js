@@ -47,9 +47,15 @@ function eliminarPropiedad(objeto, propiedad) {
   // Elimina la propiedad "propiedad" de "objeto"
   // Devuelve el objeto
   // Tu código:
+  //delete objeto[propiedad]
+  //return objeto
   delete objeto[propiedad]
   return objeto
+  
 }
+
+
+
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
