@@ -440,7 +440,7 @@ console.log(capitalizer("test test test test test           test hola hola si si
 */
 
 //30.Calculate the sum of numbers received in a comma delimited string
-
+/*
 function sumadorax(string){
     var numbers = string.split(",")
     var final = numbers.map(x => parseInt(x))
@@ -450,3 +450,105 @@ function sumadorax(string){
 
 console.log(sumadorax("1,2,3,4,5,6,7,8,9"))
 
+*/
+
+//31.Create a function that returns the number of occurrences of each word inside a text. The return will be an array with objects inside {word, count}
+
+/*
+function wordOcurrences(text){
+    var ans = []
+    var word_list = text.split(" ")
+    var word_list_unique = Array.from(new Set(text.split(" "))).filter(x => !!x == true)
+    var word_counter = []
+    for(let i = 0; i < word_list_unique.length; i++){
+        var counter = 0
+        for(let j = 0; j < word_list.length; j++){
+            if(word_list_unique[i] == word_list[j]){
+                counter++
+            }
+        }
+        word_counter.push(counter)
+    }
+    for(var i = 0; i < word_list_unique.length; i++){
+        var temp_object = {}
+        temp_object[word_list_unique[i]] = word_counter[i]
+        ans.push(temp_object)
+    }
+    return ans
+}
+
+console.log(wordOcurrences("hola hola si si chau no si si chau test asd asd asd test uno uno 2 hola hola 22 2 2 2 2       5 4 6 5 123123123 hola hola hola hola hola"))
+*/
+
+//32.Create a function to convert a CSV text to a “bi-dimensional” array
+
+
+///??
+
+//33.Create a function that converts a string to an array of characters
+
+/*function chars(string){
+    return Array.from(string)
+}
+
+var a = 'adsasd'
+var b = Array.from(a)
+console.log([...a])
+console.log(b)
+
+
+*/
+
+//34.Create a function that will convert a string in an array containing the ASCII codes of each character
+/*function string_to_ascii_array (string){
+    var ans = []
+    for(let i = 0; i < string.length; i++){
+        ans.push(string.charCodeAt(i))    
+    }
+    return ans
+}
+
+console.log(string_to_ascii_array("ABCyuiyuiyoiybnjhk"))
+*/
+
+
+
+
+//37.Implement the bubble sort algorithm for an array of numbers
+/*
+function ascending(array){
+    for(let i = 0; i < array.length; i++){
+        for(let j = 0; j < array.length; j++){
+            if(array[i] > array[j]){
+                array[i], array[j] = array[j], array[i]
+            }
+        }
+    }
+    return array
+}
+
+console.log(ascending([1000, 20, 1, 30, 60000, 8, 9, 456, -200, 1, 22, 4]))
+*/
+
+
+
+//38.Create a function to calculate the distance between two points defined by their x, y coordinates
+
+
+/*
+function distance(x, y){
+    return Math.abs(x - y)
+}
+
+console.log(distance(999, 1000))
+*/
+
+
+function flatter(...args){
+    var a =[]
+    for(i in arguments){
+    a.push(arguments[i])
+    }
+    return a.flat()
+}
+console.log(flatter([1, 2, 3, 4, 5, 6], [2, 3, 4, 56], [6, 5, 7, 9, 6, 2, 3, 4]))

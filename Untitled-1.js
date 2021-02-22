@@ -257,7 +257,7 @@ Viajeros.prototype.saludar = function(){
 
 
 
-
+/*
 
 function filtrar(funcion){
   //tu codigo
@@ -280,8 +280,8 @@ var a = [1, 2, 3, 5, 6, 100, 101, 1000]
 console.log(a.filtrar(function(x){return x % 2 == 0})) // regular function
 console.log(a.filtrar(x => x % 2 == 0))//arrow function
 
-
-
+*/
+/*
 function agregarStringInvertida() {
   // Agrega un método al prototype de String que devuelva la misma cadena de caracteres, pero invertida.
   // El método debe llamarse "reverse"
@@ -303,3 +303,251 @@ var a = "asdfghijk"
 console.log(a.reverse())
 
 
+*/
+/*
+function buscarAmigo(array, nombre){
+  for(let i = 0; i < array.length; i++){
+      if (array[i].nombre == nombre){ //(array[i].nombre == nombre) <--- pelele
+          return array[i]
+      }
+  } return 'object does not exist'
+}
+
+var list = [{nombre: 'test', edad: 'test age'}, {nombre: 'test2', edad: 'test age 2'}, {nombre: 'test3', edad: 'test age 3'}]
+
+
+console.log(buscarAmigo(list, 'test'))
+console.log(buscarAmigo(list, 'test2'))
+console.log(buscarAmigo(list, 'test3'))
+console.log(buscarAmigo(list, 'test4'))
+*/
+/*
+var object = {maicena : 'una banda'}
+
+console.log(Object.keys(object)[0])*/
+
+/*
+function cuantosRepetidos(array, number){
+  var flat_array = array.flat()
+  var counter = 0
+  for(let i = 0; i < flat_array.length; i++){
+    if(flat_array[i] == number){
+      counter++
+    }
+  }
+  return counter
+}
+
+
+console.log(cuantosRepetidos([[3, 23, 1], [9, 23, 5], [1, 23, 8], [23, 23, 23, 23, 23, 23, 23]], 23))
+*/
+
+/*
+function sumaTodos(array){
+  counter = 0
+  for(let i = array[0]; i < array[1]+1; i++){
+    counter += i
+  }
+  return counter
+}
+
+console.log(sumaTodos([5, 5]))
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//OPCION 2
+
+/*
+function filtrar(funcion){
+  Array.prototype.filtrar = function(funcion){
+      var newarray = []
+      for (var i = 0; i < this.length; i++) {
+        if (funcion(this[i])){
+          newarray.push(this[i]);
+        }
+      }
+      return newarray;
+  };
+}
+
+
+
+
+filtrar()
+var a =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+console.log(a.filtrar(x => x % 2 == 0)) //arrow 
+
+
+console.log(a.filtrar(function(x){
+  return x % 2 == 0
+}))
+
+
+*/
+
+
+/*
+//OPCIÓN 1
+
+
+function filtrar(funcion){
+  Array.prototype.filtrar = funcion
+}
+
+
+
+filtrar(function(){
+  var new_array = []
+  for(let i = 0; i < this.length; i++){
+    if(this[i] % 2 == 0){
+      new_array.push(this[i])
+    }
+  }
+  return new_array
+})
+
+
+var b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+console.log(b.filtrar())
+*/
+
+
+
+
+
+//FREE CODE CAMP ALGORITHMS 1
+
+/*
+function sym(args) {
+  var temp_array = arguments[0].filter(element => !arguments[1].includes(element)).concat(arguments[1].filter(element=> !arguments[0].includes(element)))
+  if(arguments.length == 2){
+    var final_answer2 = Array.from(new Set(temp_array))
+    return final_answer2.sort((a, b) => a - b)
+  }else{
+    temp_array = arguments[0].filter(element => !arguments[1].includes(element)).concat(arguments[1].filter(element=> !arguments[0].includes(element)))
+    for(let i = 2; i < arguments.length; i++){
+      temp_array = arguments[i].filter(element=> !temp_array.includes(element)).concat(temp_array.filter(element=>! arguments[i].includes(element)))
+    
+    }
+    var final_answer = Array.from(new Set(temp_array))
+    return final_answer.sort((a, b) => a - b)
+  }
+}
+
+
+console.log(sym([1, 2, 3, 3], [5, 2, 1, 4]))
+*/
+/*
+//FREE CODE CAMP ALGORITHMS 2
+
+function updateInventory(arr1, arr2) {
+  var ans = []
+  var object = {}
+  for(let i = 0; i < arr1.length; i++){
+    object[arr1[i][1]] = 0 + arr1[i][0]
+  }
+  for(let i = 0; i < arr2.length; i++){
+    
+    if(object[arr2[i][1]] == undefined){
+      object[arr2[i][1]] = 0 + arr2[i][0]
+    }else{
+    object[arr2[i][1]] += arr2[i][0]
+    }
+  }
+  var keys = Object.keys(object)
+  var sorted_keys = keys.sort()
+  console.log(object)
+
+  for(let i = 0; i < keys.length; i++){
+    ans.push([object[sorted_keys[i]], sorted_keys[i]])
+  }
+  return ans
+}
+
+// Example inventory lists
+var curInv = [
+  [21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]
+];
+
+var newInv = [
+  [2, "Hair Pin"], [3, "Half-Eaten Apple"], [67, "Bowling Ball"], [7, "Toothpaste"]
+];
+
+ console.log(updateInventory(curInv, newInv))
+ */
+/*
+var twoSum = function(nums, target) {
+  var ans = []
+  for(let i = 0; i < nums.length; i++){
+      for(let j = 0; j < nums.length; j++){
+          if(i >= j){continue}
+          else{
+              if(nums[i] + nums[j] == target){
+                  ans.push(i, j)
+                  return ans
+              }
+          }
+      }
+  }
+};
+
+console.log(twoSum([2,7,11,15], 9))
+
+*/
+
+/*
+function filtrar(funcion){
+  Array.prototype.filtrar = function(funcion){
+      var newarray = []
+      for (var i = 0; i < this.length; i++) {
+        if (funcion(this[i])){
+          newarray.push(this[i]);
+        }
+      }
+      return newarray;
+  };
+}
+
+
+
+
+filtrar()
+var a =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+console.log(a.filtrar(x => x % 2 == 0)) //arrow 
+
+
+console.log(a.filtrar(function(x){
+  return x > 2
+}))
+
+*/
+
+String.prototype.reverse = function(){
+  return this.split("").reverse().join("")
+}
+
+
+
+var a = "holahola"
+
+console.log(a.reverse())
